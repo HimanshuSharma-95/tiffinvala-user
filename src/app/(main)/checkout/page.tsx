@@ -398,7 +398,7 @@ export default function CheckoutPage() {
 
                                 {total < 25 && (
                                     <span className="text-orange-600 font-medium">
-                                        Minimum Order Quantity $25
+                                        Min Order $25
                                     </span>
                                 )}
 

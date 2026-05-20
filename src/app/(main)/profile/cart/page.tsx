@@ -544,24 +544,25 @@ export default function CartPage() {
                 <div className="max-w-md mx-auto">
 
                     {/* Top Notice */}
-                    <div className="bg-white rounded-t-2xl px-5 py-2 shadow-md border border-orange-100 border-b-0">
-                        <div className="flex items-center justify-between text-sm">
-                            <span className="font-semibold text-gray-900">
+                    <div className="bg-white rounded-t-2xl px-4 py-3 shadow-md border border-orange-100 border-b-0">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+
+                            <span className="font-semibold text-sm text-gray-900">
                                 Checkout
                             </span>
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
 
                                 {cart.totalAmount < 25 && (
                                     <span className="text-orange-600 font-medium">
-                                        Minimum Order Quantity $25
-
+                                        Min Order $25
                                     </span>
                                 )}
 
                                 <span className="text-green-600 font-medium">
                                     Free Delivery
                                 </span>
+
                             </div>
                         </div>
                     </div>

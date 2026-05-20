@@ -22,3 +22,28 @@ body {
     transform: translateX(0);
   }
 } */
+
+
+
+/* IOS DATE INPUT FIX */
+
+.ios-date-input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 56px;
+}
+
+/* Fix iOS weird inner spacing */
+.ios-date-input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+/* Remove ugly inner shadow on iOS */
+.ios-date-input::-webkit-datetime-edit {
+  padding: 0;
+}
+
+/* Make placeholder/date aligned */
+.ios-date-input::-webkit-date-and-time-value {
+  min-height: 1.5em;
+}

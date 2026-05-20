@@ -144,7 +144,7 @@ export default function SignupPage() {
                         </div>
 
                         {/* DOB */}
-                        <div>
+                        {/* <div>
                             <label className="text-xs text-gray-500 font-medium">DATE OF BIRTH</label>
                             <input
                                 {...register('DOB')}
@@ -154,6 +154,49 @@ export default function SignupPage() {
                             {errors.DOB && (
                                 <p className="text-red-500 text-xs mt-1">{errors.DOB.message}</p>
                             )}
+                        </div> */}
+
+                        {/* DOB */}
+                        <div>
+
+                            <label className="text-xs text-gray-500 font-medium">
+                                DATE OF BIRTH
+                            </label>
+
+                            <div className="relative mt-1">
+
+                                <input
+                                    {...register('DOB')}
+                                    type="date"
+                                    placeholder="Select date"
+                                    className="
+                w-full
+                h-14
+                bg-gray-100
+                rounded-xl
+                px-4
+                text-sm
+                outline-none
+                appearance-none
+                text-[#1E2A3A]
+                [&::-webkit-calendar-picker-indicator]:opacity-70
+                [&::-webkit-calendar-picker-indicator]:cursor-pointer
+                [&::-webkit-date-and-time-value]:text-left
+                [&::-webkit-date-and-time-value]:min-h-[1.5em]
+                ios-date-input
+            "
+                                />
+
+                            </div>
+
+                            {
+                                errors.DOB && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.DOB.message}
+                                    </p>
+                                )
+                            }
+
                         </div>
 
                         {/* Password */}

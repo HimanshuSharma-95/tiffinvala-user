@@ -126,16 +126,18 @@ export default function Footer() {
                 </div>
 
                 {/* DIVIDER */}
-                <div className="border-t border-gray-300 pt-4 text-center text-sm text-gray-500">
-                    © {new Date().getFullYear()} Tiffinvala. All rights reserved | Hand Crafted By{" "}
+                <div className="border-t border-gray-300 pt-4 text-sm text-gray-500 text-left md:text-center">
+                    <span className="block md:inline">
+                        © {new Date().getFullYear()} Tiffinvala. All rights reserved
+                    </span>
 
                     <a
                         href="https://visionboardmedia.github.io/Contact/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#F97316] hover:underline font-medium"
+                        className="text-[#F97316] hover:underline font-medium block md:inline"
                     >
-                        Vision Board Media
+                        {" "}Hand Crafted By Vision Board Media
                     </a>
                 </div>
 

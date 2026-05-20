@@ -1,13 +1,13 @@
 'use client'
 
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { MessageCircle, Mail, MapPin } from 'lucide-react'
 
 const contactCards = [
     {
-        icon: Phone,
-        label: 'Phone',
+        icon: MessageCircle,
+        label: 'WhatsApp',
         value: '+1 (661) 863-8001',
-        href: 'tel:+12069139361',
+        href: 'https://wa.me/16618638001',
     },
     {
         icon: Mail,
@@ -36,16 +36,29 @@ export default function ContactUs() {
                 <p className="text-[#F97316] font-semibold tracking-[0.2em] uppercase text-xs mb-3">
                     Get In Touch
                 </p>
+
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E2A3A] leading-tight mb-6">
-                    {/* Catering for <br /> */}
                     <span className="relative inline-block">
                         Contact Us
+
                         {/* Underline squiggle */}
-                        <svg className="absolute -bottom-1 left-0 w-full" height="6" viewBox="0 0 200 6" preserveAspectRatio="none">
-                            <path d="M0 3 Q25 0 50 3 Q75 6 100 3 Q125 0 150 3 Q175 6 200 3" stroke="#F97316" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                        <svg
+                            className="absolute -bottom-1 left-0 w-full"
+                            height="6"
+                            viewBox="0 0 200 6"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M0 3 Q25 0 50 3 Q75 6 100 3 Q125 0 150 3 Q175 6 200 3"
+                                stroke="#F97316"
+                                strokeWidth="2.5"
+                                fill="none"
+                                strokeLinecap="round"
+                            />
                         </svg>
                     </span>
                 </h2>
+
                 <p className="text-gray-500 mt-4 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
                     Reach out anytime for orders, subscriptions, or support
                 </p>
@@ -56,6 +69,7 @@ export default function ContactUs() {
                 {contactCards.map(({ icon: Icon, label, value, href }) => {
                     const inner = (
                         <div className="group relative flex items-center gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 w-full">
+
                             {/* Icon pill */}
                             <div className="shrink-0 w-11 h-11 rounded-xl bg-orange-50 flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
                                 <Icon size={20} className="text-[#F97316]" />
@@ -66,22 +80,41 @@ export default function ContactUs() {
                                 <p className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold mb-0.5">
                                     {label}
                                 </p>
+
                                 <p className="text-sm font-bold text-[#1E2A3A] truncate">
                                     {value}
                                 </p>
                             </div>
 
-                            {/* Subtle arrow for clickable cards */}
+                            {/* Arrow */}
                             {href && (
-                                <svg className="ml-auto shrink-0 text-gray-300 group-hover:text-[#F97316] transition-colors duration-300" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <svg
+                                    className="ml-auto shrink-0 text-gray-300 group-hover:text-[#F97316] transition-colors duration-300"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M3 8h10M9 4l4 4-4 4"
+                                        stroke="currentColor"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
                                 </svg>
                             )}
                         </div>
                     )
 
                     return href ? (
-                        <a key={label} href={href} className="flex-1">
+                        <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1"
+                        >
                             {inner}
                         </a>
                     ) : (

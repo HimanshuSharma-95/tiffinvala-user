@@ -1,122 +1,3 @@
-// 'use client'
-
-// import { useRouter } from 'next/navigation'
-// import { useAuthStore } from '@/store/authStore'
-// import { ArrowLeft, User, Mail, Phone } from 'lucide-react'
-
-// export default function PersonalInfoPage() {
-//     const router = useRouter()
-//     const { user } = useAuthStore()
-
-//     const initials = user?.full_name
-//         ?.split(' ')
-//         .map((n) => n[0])
-//         .join('')
-//         .toUpperCase() || 'U'
-
-//     return (
-//         <div className="min-h-screen bg-white">
-
-//             {/* HEADER */}
-//             <div className="flex items-center justify-between px-4 py-4 w-full mx-auto">
-//                 <button
-//                     onClick={() => router.back()}
-//                     className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"
-//                 >
-//                     <ArrowLeft size={18} />
-//                 </button>
-
-//                 {/* <h1 className="text-lg font-semibold text-[#1E2A3A]">
-//                     Personal Info
-//                 </h1> */}
-//                 {/* 
-//                 <button className="text-sm font-semibold text-[#F97316] tracking-wide">
-//                     EDIT
-//                 </button> */}
-//             </div>
-
-//             {/* CONTENT WRAPPER */}
-//             <div className="max-w-md mx-auto px-4">
-
-
-
-//                 {/* PROFILE SECTION */}
-//                 <div className="px-6 py-6 flex flex-col items-center text-center gap-3">
-//                     <div className="w-20 h-20 rounded-full bg-orange-200 flex items-center justify-center overflow-hidden">
-//                         {user?.avatar ? (
-//                             <img src={user.avatar} alt="avatar" className="w-full h-full object-cover" />
-//                         ) : (
-//                             <span className="text-2xl font-bold text-orange-400">{initials}</span>
-//                         )}
-//                     </div>
-//                     <div>
-//                         <h2 className="text-xl font-bold text-[#1E2A3A]">{user?.full_name}</h2>
-//                     </div>
-//                 </div>
-
-
-//                 <div className="flex justify-end ">
-//                     <button className="text-sm font-semibold text-[#F97316] tracking-wide">
-//                         EDIT
-//                     </button>
-//                 </div>
-
-//                 {/* INFO CARD */}
-//                 <div className="mt-2 bg-gray-100 rounded-2xl overflow-hidden">
-
-//                     {/* FULL NAME */}
-//                     <div className="flex items-center gap-4 px-4 py-4">
-//                         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-//                             <User size={18} className="text-orange-500" />
-//                         </div>
-//                         <div>
-//                             <p className="text-xs text-gray-400 tracking-wide">FULL NAME</p>
-//                             <p className="text-sm font-medium text-[#1E2A3A]">
-//                                 {user?.full_name}
-//                             </p>
-//                         </div>
-//                     </div>
-
-//                     <div className="border-t border-gray-200" />
-
-//                     {/* EMAIL */}
-//                     <div className="flex items-center gap-4 px-4 py-4">
-//                         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-//                             <Mail size={18} className="text-blue-500" />
-//                         </div>
-//                         <div>
-//                             <p className="text-xs text-gray-400 tracking-wide">EMAIL</p>
-//                             <p className="text-sm font-medium text-[#1E2A3A]">
-//                                 {user?.email}
-//                             </p>
-//                         </div>
-//                     </div>
-
-//                     <div className="border-t border-gray-200" />
-
-//                     {/* PHONE */}
-//                     <div className="flex items-center gap-4 px-4 py-4">
-//                         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-//                             <Phone size={18} className="text-blue-400" />
-//                         </div>
-//                         <div>
-//                             <p className="text-xs text-gray-400 tracking-wide">PHONE NUMBER</p>
-//                             <p className="text-sm font-medium text-[#1E2A3A]">
-//                                 {user?.phone_number || 'Not added'}
-//                             </p>
-//                         </div>
-//                     </div>
-
-//                 </div>
-
-//             </div>
-
-//         </div>
-//     )
-// }
-
-
-
 'use client'
 
 import { useState, useMemo } from 'react'
@@ -244,8 +125,8 @@ export default function PersonalInfoPage() {
     }
 
     const inputClass = (disabled: boolean) =>
-        `w-full mt-1 rounded-xl px-4 py-3 text-sm outline-none border transition
-        ${disabled
+        `w-full mt-1 h-12 rounded-xl px-4 text-sm outline-none border transition appearance-none
+    ${disabled
             ? 'bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed'
             : 'bg-white border-gray-200 text-[#1E2A3A] focus:border-[#F97316]'
         }`
@@ -347,7 +228,7 @@ export default function PersonalInfoPage() {
                                     value={form.gender}
                                     onChange={e => setForm(p => ({ ...p, gender: e.target.value }))}
                                     disabled={saving}
-                                    className={inputClass(saving)}
+                                    className={`${inputClass(saving)} pr-10`}
                                 >
                                     <option value="">Select gender</option>
                                     <option value="male">Male</option>
@@ -363,7 +244,7 @@ export default function PersonalInfoPage() {
                                     value={form.DOB}
                                     onChange={e => setForm(p => ({ ...p, DOB: e.target.value }))}
                                     disabled={saving}
-                                    className={inputClass(saving)}
+                                    className={`${inputClass(saving)} appearance-none`}
                                 />
                             </div>
 

@@ -39,9 +39,7 @@ export default function DeliveryAreas() {
         "Milpitas",
         "Redwood City",
         "Los Altos",
-        "Saratoga",
-        "Daly City",
-        "San Francisco",
+        "Saratoga"
     ];
 
     return (

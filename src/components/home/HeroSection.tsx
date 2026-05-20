@@ -51,10 +51,11 @@ export default function HeroSection() {
 
                 <p className="text-gray-500 text-sm md:text-lg mt-3 text-center max-w-3xl">
                     Fresh Tiffins
-                    made with care and May contain nuts, dairy, wheat, soy, and other allergens.
+                    made with care and May contain nuts, dairy, wheat, soya, and other allergens.
                 </p>
 
                 <button
+                
                     onClick={handleOrderNow}
                     className="mt-8 w-4/5 md:w-auto px-10 bg-[#F97316] hover:bg-[#1E2A3A] transition-all duration-300 text-white md:py-4 py-3 rounded-2xl font-bold tracking-wide md:text-lg text-sm shadow-lg "
                 >

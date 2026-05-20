@@ -285,7 +285,7 @@ export default function CartPage() {
                     </button>
                     <h1 className="text-lg font-bold text-[#1E2A3A]">My Cart</h1>
                 </div>
-                <div className="flex-1 flex flex-col items-center justify-center gap-4 px-6">
+                <div className="flex-1 flex flex-col mb-30 items-center justify-center gap-4 px-6">
                     <div className="w-20 h-20 rounded-full bg-orange-50 flex items-center justify-center">
                         <ShoppingCart size={36} className="text-[#F97316]" />
                     </div>

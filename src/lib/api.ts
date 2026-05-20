@@ -1,7 +1,8 @@
 import axios from 'axios'
 
-console.log("API KEY:", process.env.NEXT_PUBLIC_API_KEY)
-console.log("API URL:", process.env.NEXT_PUBLIC_API_URL)
+// console.log("API KEY:", process.env.NEXT_PUBLIC_API_KEY)
+// console.log("API URL:", process.env.NEXT_PUBLIC_API_URL)
+// console.log("Google API:", process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,

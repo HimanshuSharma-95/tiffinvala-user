@@ -127,7 +127,7 @@ export default function SignupPage() {
                         </div>
 
                         {/* Gender */}
-                        <div>
+                        {/* <div>
                             <label className="text-xs text-gray-500 font-medium">GENDER</label>
                             <select
                                 {...register('gender')}
@@ -141,6 +141,69 @@ export default function SignupPage() {
                             {errors.gender && (
                                 <p className="text-red-500 text-xs mt-1">{errors.gender.message}</p>
                             )}
+                        </div> */}
+
+                        {/* Gender */}
+                        <div>
+
+                            <label className="text-xs text-gray-500 font-medium">
+                                GENDER
+                            </label>
+
+                            <div className="relative mt-1">
+
+                                <select
+                                    {...register('gender')}
+                                    className="
+                w-full
+                h-14
+                bg-gray-100
+                rounded-xl
+                px-4
+                text-sm
+                outline-none
+                appearance-none
+                text-[#1E2A3A]
+                pr-10
+                ios-select-input
+            "
+                                    defaultValue=""
+                                >
+
+                                    <option value="" disabled>
+                                        Select gender
+                                    </option>
+
+                                    <option value="male">
+                                        Male
+                                    </option>
+
+                                    <option value="female">
+                                        Female
+                                    </option>
+
+                                    <option value="other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                                {/* Custom Arrow */}
+
+                                <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs">
+                                    ▼
+                                </div>
+
+                            </div>
+
+                            {
+                                errors.gender && (
+                                    <p className="text-red-500 text-xs mt-1">
+                                        {errors.gender.message}
+                                    </p>
+                                )
+                            }
+
                         </div>
 
                         {/* DOB */}

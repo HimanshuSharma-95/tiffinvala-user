@@ -47,3 +47,12 @@ body {
 .ios-date-input::-webkit-date-and-time-value {
   min-height: 1.5em;
 }
+
+
+/* IOS SELECT FIX */
+
+.ios-select-input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 56px;
+}

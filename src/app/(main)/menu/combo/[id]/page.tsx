@@ -331,17 +331,18 @@ export default function ComboDetailPage() {
                                         >
                                             <div className="flex items-center gap-3">
                                                 {/* veg/non-veg indicator */}
-                                                <span className={`w-3 h-3 rounded-full border-2 shrink-0
+                                                {/* <span className={`w-3 h-3 rounded-full border-2 shrink-0
                                                     ${product.food_class === 'chicken'
                                                         ? 'border-red-500 bg-red-500'
                                                         : 'border-green-500 bg-green-500'}`}
-                                                />
+                                                /> */}
                                                 <div className="text-left">
                                                     <p className="text-sm font-medium text-[#1E2A3A]">
                                                         {product.name}
                                                     </p>
                                                     <p className="text-xs text-gray-400">
-                                                        {product.variants[0].size} — ₹{product.variants[0].price}
+                                                        {combo.size}
+                                                        {/* {product.variants[0].size} — ₹{product.variants[0].price} */}
                                                     </p>
                                                 </div>
                                             </div>

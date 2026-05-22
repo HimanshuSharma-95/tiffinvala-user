@@ -6,13 +6,13 @@ import { useAuthStore } from "@/store/authStore";
 export default function HeroSection() {
 
     const router = useRouter()
-    const { isLoggedIn } = useAuthStore()
+    // const { isLoggedIn } = useAuthStore()
 
     const handleOrderNow = () => {
-        if (!isLoggedIn()) {
-            router.push('/profile')
-            return
-        }
+        // if (!isLoggedIn()) {
+        //     router.push('/profile')
+        //     return
+        // }
         router.push('/menu')
     }
 

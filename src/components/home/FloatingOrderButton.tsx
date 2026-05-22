@@ -4,19 +4,33 @@
 import { useRouter } from "next/navigation";
 import { UtensilsCrossed } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useAuthStore } from "@/store/authStore";
 
 export default function FloatingMenuButton() {
     const router = useRouter();
     const [visible, setVisible] = useState(false);
+
+    const { isLoggedIn, _hasHydrated } = useAuthStore()
+
+    const handleOrderNow = () => {
+        if (!_hasHydrated) return  // still loading, do nothing
+
+        if (!isLoggedIn()) {
+            router.push('/profile')
+            return
+        }
+        router.push('/menu')
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => setVisible(true), 300);
         return () => clearTimeout(timer);
     }, []);
 
+
     return (
         <button
-            onClick={() => router.push("/menu")}
+            onClick={handleOrderNow}
             className={`
                 fixed bottom-6 right-6 z-50
                 flex items-center gap-2

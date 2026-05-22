@@ -6,15 +6,18 @@ import { useAuthStore } from "@/store/authStore";
 export default function HeroSection() {
 
     const router = useRouter()
-    const { isLoggedIn } = useAuthStore()
+    const { isLoggedIn, _hasHydrated } = useAuthStore()
 
     const handleOrderNow = () => {
+        if (!_hasHydrated) return
+
         if (!isLoggedIn()) {
             router.push('/profile')
             return
         }
         router.push('/menu')
     }
+
 
     return (
         <section className="md:relative md:left-1/2 md:right-1/2 md:mx-[-50vw] md:w-screen bg-white">

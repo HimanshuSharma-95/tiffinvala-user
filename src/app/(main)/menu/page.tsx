@@ -764,7 +764,7 @@ export default function MenuPage() {
 
                                         {/* Price */}
                                         <p className="text-lg font-extrabold text-[#F97316] mt-1">
-                                            ₹{combo.price}
+                                            ${combo.price}
                                         </p>
 
                                     </div>

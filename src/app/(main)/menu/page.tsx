@@ -613,14 +613,14 @@ export default function MenuPage() {
                                                             }}
                                                         />
 
-                                                        <span
+                                                        {/* <span
                                                             className={`absolute top-2 left-2 w-3 h-3 rounded-full border-2
                     ${product.food_class === 'chicken' ||
                                                                     product.food_class === 'mutton'
                                                                     ? 'border-red-500 bg-red-500'
                                                                     : 'border-green-500 bg-green-500'
                                                                 }`}
-                                                        />
+                                                        /> */}
 
                                                     </div>
                                                 </div>

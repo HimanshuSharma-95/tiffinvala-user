@@ -6,13 +6,13 @@ import { useAuthStore } from "@/store/authStore";
 export default function HeroSection() {
 
     const router = useRouter()
-    // const { isLoggedIn } = useAuthStore()
+    const { isLoggedIn } = useAuthStore()
 
     const handleOrderNow = () => {
-        // if (!isLoggedIn()) {
-        //     router.push('/profile')
-        //     return
-        // }
+        if (!isLoggedIn()) {
+            router.push('/profile')
+            return
+        }
         router.push('/menu')
     }
 
@@ -55,7 +55,7 @@ export default function HeroSection() {
                 </p>
 
                 <button
-                
+
                     onClick={handleOrderNow}
                     className="mt-8 w-4/5 md:w-auto px-10 bg-[#F97316] hover:bg-[#1E2A3A] transition-all duration-300 text-white md:py-4 py-3 rounded-2xl font-bold tracking-wide md:text-lg text-sm shadow-lg "
                 >

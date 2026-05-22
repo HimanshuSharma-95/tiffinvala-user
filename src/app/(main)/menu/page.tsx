@@ -87,7 +87,7 @@ function SizePicker({
                                                 : v.size === 'full' ? 'Full'
                                                     : v.size}
                                 </span>
-                                <span className="text-sm font-bold text-[#F97316]">₹{v.price}</span>
+                                <span className="text-sm font-bold text-[#F97316]">${v.price}</span>
                             </button>
                         ))}
                     </div>

@@ -13,7 +13,8 @@ export default function FloatingWhatsappButton() {
 
     return (
         <a
-            href="https://chat.whatsapp.com/EdtiNqJu2RRDaCwvFf9msV"
+            // href="https://chat.whatsapp.com/EdtiNqJu2RRDaCwvFf9msV"
+            href="https://wa.me/16618638001"
             target="_blank"
             rel="noopener noreferrer"
             className={`
@@ -37,7 +38,7 @@ export default function FloatingWhatsappButton() {
                 style={{ width: "28px", height: "auto" }}
             />
             <span className="text-sm font-semibold tracking-wide">
-                Join Community
+                Chat With Us
             </span>
         </a>
     );

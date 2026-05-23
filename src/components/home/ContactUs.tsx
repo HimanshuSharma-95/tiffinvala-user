@@ -3,11 +3,17 @@
 import { MessageCircle, Mail, MapPin } from 'lucide-react'
 
 const contactCards = [
+    // {
+    //     icon: MessageCircle,
+    //     label: 'WhatsApp',
+    //     value: '+1 (661) 863-8001',
+    //     href: 'https://wa.me/16618638001',
+    // },
     {
         icon: MessageCircle,
-        label: 'WhatsApp',
-        value: '+1 (661) 863-8001',
-        href: 'https://wa.me/16618638001',
+        label: 'WhatsApp Community',
+        value: 'Join',
+        href: 'https://chat.whatsapp.com/EdtiNqJu2RRDaCwvFf9msV',
     },
     {
         icon: Mail,

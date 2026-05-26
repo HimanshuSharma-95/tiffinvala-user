@@ -431,7 +431,7 @@ export default function CheckoutPage() {
                             placingOrder ||
                             !selectedAddress ||
                             items.length === 0 ||
-                            total < 25
+                            total < 24.99
                         }
                         className={`
                 w-full flex items-center justify-between px-6 py-4 font-semibold transition-colors

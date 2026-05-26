@@ -307,7 +307,7 @@ export default function CheckoutPage() {
                                 </p>
 
                                 <p className="text-lg font-bold text-[#F97316]">
-                                    ${total}
+                                    ${total.toFixed(2)}
                                 </p>
                             </div>
 
@@ -454,7 +454,7 @@ export default function CheckoutPage() {
                         </span>
 
                         <span>
-                            ${total}
+                            ${total.toFixed(2)}
                         </span>
 
                     </button>

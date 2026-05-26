@@ -253,7 +253,7 @@ function OrderCard({
                     </div>
 
                     <div className="text-right shrink-0">
-                        <p className="text-base font-bold text-[#F97316]">${order.totalAmount}</p>
+                        <p className="text-base font-bold text-[#F97316]">${order.totalAmount.toFixed(2)}</p>
                         <p className="text-xs text-gray-400">{order.itemCount} item{order.itemCount !== 1 ? 's' : ''}</p>
                     </div>
                 </div>
@@ -348,7 +348,7 @@ function OrderCard({
                                 </div>
 
                                 <p className="text-xs font-semibold text-[#F97316]">
-                                    ${item.subtotal}
+                                    ${item.subtotal.toFixed(2)}
                                 </p>
 
                             </div>
@@ -385,7 +385,7 @@ function OrderCard({
 
                     <div className="flex items-center justify-between border-t border-gray-200 pt-2 mt-2">
                         <span className="text-xs font-bold text-[#1E2A3A]">Total</span>
-                        <span className="text-sm font-bold text-[#F97316]">${order.totalAmount}</span>
+                        <span className="text-sm font-bold text-[#F97316]">${order.totalAmount.toFixed(2)}</span>
                     </div>
                 </div>
             )}

@@ -396,9 +396,9 @@ export default function CheckoutPage() {
 
                             <div className="flex items-center gap-2">
 
-                                {total < 25 && (
+                                {total < 24.99 && (
                                     <span className="text-orange-600 font-medium">
-                                        Min Order $25
+                                        Min Order $24.99
                                     </span>
                                 )}
 
@@ -435,7 +435,7 @@ export default function CheckoutPage() {
                         }
                         className={`
                 w-full flex items-center justify-between px-6 py-4 font-semibold transition-colors
-                ${placingOrder || !selectedAddress || items.length === 0 || total < 25
+                ${placingOrder || !selectedAddress || items.length === 0 || total < 24.99
                                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                                 : 'bg-[#F97316] text-white hover:bg-[#da5b00]'
                             }

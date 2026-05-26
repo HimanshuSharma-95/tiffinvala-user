@@ -553,9 +553,9 @@ export default function CartPage() {
 
                             <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
 
-                                {cart.totalAmount < 25 && (
+                                {cart.totalAmount < 24.99 && (
                                     <span className="text-orange-600 font-medium">
-                                        Min Order $25
+                                        Min Order $24.99
                                     </span>
                                 )}
 
@@ -569,9 +569,9 @@ export default function CartPage() {
 
                     {/* Checkout Button */}
                     <button
-                        disabled={cart.totalAmount < 25}
+                        disabled={cart.totalAmount < 24.99}
                         onClick={() => router.push("/checkout")}
-                        className={`w-full flex items-center justify-between px-6 py-4 rounded-b-2xl shadow-lg transition-all duration-200 ${cart.totalAmount >= 25
+                        className={`w-full flex items-center justify-between px-6 py-4 rounded-b-2xl shadow-lg transition-all duration-200 ${cart.totalAmount >= 24.99
                             ? "bg-[#F97316] text-white hover:scale-[1.02]"
                             : "bg-gray-300 text-gray-500 cursor-not-allowed"
                             }`}

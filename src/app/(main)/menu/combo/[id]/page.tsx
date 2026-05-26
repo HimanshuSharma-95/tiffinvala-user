@@ -711,7 +711,7 @@ export default function ComboDetailPage() {
                         </div>
 
                         <span className="font-semibold text-sm">
-                            ₹{combo.price}
+                            ${combo.price}
                         </span>
 
                     </button>

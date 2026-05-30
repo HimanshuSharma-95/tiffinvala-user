@@ -504,7 +504,7 @@ export default function ComboDetailPage() {
                                     {rule.label}
                                 </h3>
 
-                                <p className="text-xs text-gray-400">
+                                {/* <p className="text-xs text-gray-400">
 
                                     {rule.isFixed
                                         ? `Included: ${rule.quantity}`
@@ -512,7 +512,7 @@ export default function ComboDetailPage() {
 
                                     {rule.isOptional && ' (optional)'}
 
-                                </p>
+                                </p> */}
 
                             </div>
 

@@ -48,3 +48,12 @@ export const forgotPassword = async (email: string) => {
     const response = await api.post<ApiResponse<string>>('/users/forgotpassword', { email })
     return response.data
 }
+
+
+export const getCurrentUser = async () => {
+    const response = await api.get<ApiResponse<User>>(
+        '/users/current-user'
+    )
+
+    return response.data
+}

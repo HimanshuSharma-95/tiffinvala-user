@@ -74,7 +74,10 @@ export const useCartStore = create<CartStore>()(
                 })
             },
 
-            clearCart: () => set({ items: [] }),
+            clearCart: () => {
+                set({ items: [] })
+                localStorage.removeItem('cart-storage')
+            },
 
             total: () =>
                 get().items.reduce(

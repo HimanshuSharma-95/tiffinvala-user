@@ -110,7 +110,10 @@ export const useAuthStore = create<AuthStore>()(
 
             setPendingEmail: (email) => set({ pendingEmail: email }),
 
-            logout: () => set({ user: null, pendingEmail: null }),
+            logout: () => {
+                set({ user: null, pendingEmail: null })
+                localStorage.removeItem('auth-storage')
+            },
 
             isLoggedIn: () => !!get().user,
         }),
@@ -122,3 +125,4 @@ export const useAuthStore = create<AuthStore>()(
         }
     )
 )
+

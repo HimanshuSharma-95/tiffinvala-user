@@ -1,87 +1,11 @@
-// 'use client'
-
-// import { useRouter } from "next/navigation";
-// import { useAuthStore } from "@/store/authStore";
-
-// export default function HeroSection() {
-
-//     const router = useRouter()
-//     const { isLoggedIn, _hasHydrated } = useAuthStore()
-
-//     const handleOrderNow = () => {
-//         if (!_hasHydrated) return
-
-//         if (!isLoggedIn()) {
-//             router.push('/profile')
-//             return
-//         }
-//         router.push('/menu')
-//     }
-
-
-//     return (
-//         <section className="md:relative md:left-1/2 md:right-1/2 md:mx-[-50vw] md:w-screen bg-white">
-
-//             {/* Responsive Image Banner */}
-//             <div className="w-full overflow-hidden">
-
-//                 {/* Mobile Image */}
-//                 <img
-//                     src="/mobbanner1.png"
-//                     alt="food"
-//                     className="w-full object-cover aspect-video md:hidden"
-//                 />
-
-//                 {/* Desktop Image */}
-//                 <img
-//                     src="/deskbanner1.png"
-//                     alt="food"
-//                     className="w-full object-cover aspect-16/7 hidden md:block"
-//                 />
-//             </div>
-
-//             {/* Content */}
-//             <div className="px-4 md:px-10 pt-10 pb-8 flex flex-col items-center">
-
-//                 <p className="text-[#1E1E1E] text-xl md:text-4xl font-extrabold text-center leading-snug ">
-//                     Healthy Homemade Food
-//                     {/* <br /> */}
-//                     <span className="text-[#F97316] ml-2 mr-2">
-//                         Delivered 50,000+
-//                     </span>
-//                     Meals
-//                 </p>
-
-//                 <p className="text-gray-500 text-sm md:text-lg mt-3 text-center max-w-3xl">
-//                     Fresh Tiffins
-//                     made with care and May contain nuts, dairy, wheat, soya, and other allergens.
-//                 </p>
-
-//                 <button
-
-//                     onClick={handleOrderNow}
-//                     className="mt-8 w-4/5 md:w-auto px-10 bg-[#F97316] hover:bg-[#1E2A3A] transition-all duration-300 text-white md:py-4 py-3 rounded-2xl font-bold tracking-wide md:text-lg text-sm shadow-lg "
-//                 >
-//                     Order Now
-//                 </button>
-
-//             </div>
-
-//         </section>
-//     )
-// }
-
-
-
-
-
-
-
 'use client'
 
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/authStore";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { getCurrentUser } from "@/services/authService";
+import { handleLogout } from "@/utils/auth";
+import { toast } from "sonner";
 
 const SLIDES = [
     { mob: "/mobbanner1.png", desk: "/deskbanner1.png" },
@@ -198,16 +122,36 @@ export default function HeroSection() {
     }, [goToExtended, startTimer]);
 
     // ── Misc ──────────────────────────────────────────────────────────────────
-    const handleOrderNow = () => {
-        if (!_hasHydrated) return;
-        if (!isLoggedIn()) { router.push('/profile'); return; }
-        router.push('/menu');
-    };
+    const handleOrderNow = async () => {
+        if (!_hasHydrated) return
+
+        if (!isLoggedIn()) {
+            router.push('/profile')
+            return
+        }
+
+        try {
+            const response = await getCurrentUser()
+
+            if (response.success) {
+                router.push('/menu')
+                return
+            }
+        } catch {
+            // Session invalid
+        }
+
+        await handleLogout()
+
+        toast.error('Please login again')
+
+        router.push('/profile')
+    }
 
     const activeDot =
         displayIndex === 0 ? total - 1 :
-        displayIndex === total + 1 ? 0 :
-        displayIndex - 1;
+            displayIndex === total + 1 ? 0 :
+                displayIndex - 1;
 
     const translateX = `calc(${-displayIndex * 100}% + ${dragOffset}px)`;
 
@@ -259,11 +203,10 @@ export default function HeroSection() {
                         key={i}
                         aria-label={`Go to slide ${i + 1}`}
                         onClick={() => { goToExtended(i + 1); startTimer(); }}
-                        className={`rounded-full transition-all duration-300 ${
-                            i === activeDot
-                                ? "w-5 h-2 bg-[#F97316]"
-                                : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                        }`}
+                        className={`rounded-full transition-all duration-300 ${i === activeDot
+                            ? "w-5 h-2 bg-[#F97316]"
+                            : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+                            }`}
                     />
                 ))}
             </div>
@@ -280,7 +223,16 @@ export default function HeroSection() {
                 </p>
                 <button
                     onClick={handleOrderNow}
-                    className="mt-8 w-4/5 md:w-auto px-10 bg-[#F97316] hover:bg-[#1E2A3A] transition-all duration-300 text-white md:py-4 py-3 rounded-2xl font-bold tracking-wide md:text-lg text-sm shadow-lg"
+                    className="
+        mt-8 w-4/5 md:w-auto px-10
+        bg-[#F97316] hover:bg-[#1E2A3A]
+        text-white md:py-4 py-3
+        rounded-2xl font-bold tracking-wide
+        md:text-lg text-sm shadow-lg
+        transition-all duration-100
+        active:scale-[0.97]
+        active:translate-y-0.2
+    "
                 >
                     Order Now
                 </button>

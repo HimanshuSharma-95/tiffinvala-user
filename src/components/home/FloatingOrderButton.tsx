@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { UtensilsCrossed } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuthStore } from "@/store/authStore";
+import { getCurrentUser } from '@/services/authService'
+import { toast } from 'sonner'
+import { handleLogout } from '@/utils/auth'
+
 
 export default function FloatingMenuButton() {
     const router = useRouter();
@@ -12,14 +16,27 @@ export default function FloatingMenuButton() {
 
     const { isLoggedIn, _hasHydrated } = useAuthStore()
 
-    const handleOrderNow = () => {
-        if (!_hasHydrated) return  // still loading, do nothing
+    const handleOrderNow = async () => {
+        if (!_hasHydrated) return
 
         if (!isLoggedIn()) {
             router.push('/profile')
             return
         }
-        router.push('/menu')
+
+        try {
+            const response = await getCurrentUser()
+
+            if (response.success) {
+                router.push('/menu')
+                return
+            }
+        } catch { }
+
+        await handleLogout()
+
+        toast.error('Please login again')
+        router.push('/profile')
     }
 
     useEffect(() => {

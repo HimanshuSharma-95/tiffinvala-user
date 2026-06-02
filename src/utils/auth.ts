@@ -5,6 +5,7 @@ import { useCartStore } from '@/store/cartStore'
 export const handleLogout = async (
     callBackend = true
 ) => {
+    
     if (callBackend) {
         try {
             await logoutUser()

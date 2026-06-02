@@ -8,8 +8,9 @@ import { viewCart, removeFromCart, addToCart, deleteCartItem, clearCart } from '
 import { useCartStore } from '@/store/cartStore'
 import { AddToCartPayload, ViewCartItem, ViewCartResponse } from '@/types/menu'
 import Loading from '@/components/general/Loading'
+import ProtectedRoute from '@/components/ProtectedRoutes'
 
-export default function CartPage() {
+function CartPageContent() {
     const router = useRouter()
     const { setItemsFromCart } = useCartStore()
 
@@ -588,5 +589,14 @@ export default function CartPage() {
             </div>
 
         </div>
+    )
+}
+
+
+export default function CartPage() {
+    return (
+        <ProtectedRoute>
+            <CartPageContent />
+        </ProtectedRoute>
     )
 }

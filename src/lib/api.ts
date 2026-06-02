@@ -78,7 +78,7 @@ api.interceptors.response.use(
 
                 try {
                     // false = don't call backend logout again
-                    await handleLogout(false)
+                    await handleLogout(false,true)
                 } finally {
                     isLoggingOut = false
                 }

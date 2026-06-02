@@ -22,6 +22,7 @@ import {
     ViewCartItem,
 } from '@/types/menu'
 import Loading from '@/components/general/Loading'
+import ProtectedRoute from '@/components/ProtectedRoutes'
 
 type Area = 'seattle' | 'bay_area'
 type Tab = 'items' | 'packages'
@@ -97,7 +98,8 @@ function SizePicker({
     )
 }
 
-export default function MenuPage() {
+function MenuPageContent() {
+
     const router = useRouter()
     const {
         getTotalQuantity,
@@ -830,5 +832,15 @@ export default function MenuPage() {
             </div>
             <CartBar />
         </div>
+    )
+}
+
+
+
+export default function MenuPage() {
+    return (
+        <ProtectedRoute>
+            <MenuPageContent />
+        </ProtectedRoute>
     )
 }

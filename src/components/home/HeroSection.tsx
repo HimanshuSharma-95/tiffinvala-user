@@ -123,29 +123,7 @@ export default function HeroSection() {
 
     // ── Misc ──────────────────────────────────────────────────────────────────
     const handleOrderNow = async () => {
-        if (!_hasHydrated) return
-
-        if (!isLoggedIn()) {
-            router.push('/profile')
-            return
-        }
-
-        try {
-            const response = await getCurrentUser()
-
-            if (response.success) {
-                router.push('/menu')
-                return
-            }
-        } catch {
-            // Session invalid
-        }
-
-        await handleLogout()
-
-        toast.error('Please login again')
-
-        router.push('/profile')
+        router.push('/menu')
     }
 
     const activeDot =

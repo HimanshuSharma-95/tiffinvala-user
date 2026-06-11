@@ -108,11 +108,15 @@ export function proxy(request: NextRequest) {
         return NextResponse.redirect(new URL('/profile', request.url))
     }
 
-    if (token && (
-        pathname === '/login' ||
-        pathname === '/signup' ||
-        pathname === '/verify-otp'
-    )) {
+    if (
+        token &&
+        (
+            pathname === '/login' ||
+            pathname === '/signup' ||
+            pathname === '/verify-otp' ||
+            pathname.startsWith('/reset-password')
+        )
+    ) {
         return NextResponse.redirect(new URL('/', request.url))
     }
 

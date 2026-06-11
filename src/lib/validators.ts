@@ -29,6 +29,27 @@ export const addressSchema = z.object({
 
 export const emailSchema = z.string().email('Enter a valid email address')
 
+export const resetPasswordSchema = z
+    .object({
+        password: z
+            .string()
+            .min(8, 'Password must be at least 8 characters'),
+
+        confirmPassword: z
+            .string()
+            .min(8, 'Confirm password is required')
+    })
+    .refine(
+        (data) => data.password === data.confirmPassword,
+        {
+            message: 'Passwords do not match',
+            path: ['confirmPassword']
+        }
+    )
+
+export type ResetPasswordFormData =
+    z.infer<typeof resetPasswordSchema>
+
 // Auto-generate TypeScript types from schemas — no need to write them manually
 export type SignupFormData = z.infer<typeof signupSchema>
 export type LoginFormData = z.infer<typeof loginSchema>

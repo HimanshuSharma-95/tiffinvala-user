@@ -57,3 +57,18 @@ export const getCurrentUser = async () => {
 
     return response.data
 }
+
+
+export const resetPassword = async (
+    token: string,
+    newPassword: string
+) => {
+    const response = await api.post(
+        `/users/reset-password/${token}`,
+        {
+            newPassword
+        }
+    )
+
+    return response.data
+}

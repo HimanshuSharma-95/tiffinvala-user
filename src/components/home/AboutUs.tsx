@@ -1,4 +1,3 @@
-import aboutusImg from "/aboutus.png";
 
 export default function AboutUs() {
     return (
@@ -45,7 +44,7 @@ export default function AboutUs() {
                 {/* RIGHT IMAGE */}
                 <div className="hidden md:block animate-slide-in-right">
                     <img
-                        src="/aboutus.png"
+                        src="/aboutus.webp"
                         alt="Homemade Food"
                         className="w-full h-auto rounded-2xl shadow-lg"
                     />

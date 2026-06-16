@@ -131,7 +131,7 @@ export default function Navbar() {
             >
 
                 <img
-                    src="/tvlogo.png"
+                    src="/tvlogo.webp"
                     alt="Tiffinvala"
                     className="h-12 w-auto"
                 />

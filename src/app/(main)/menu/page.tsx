@@ -606,12 +606,12 @@ function MenuPageContent() {
                                                     <div className="relative w-full h-36 rounded-2xl overflow-hidden">
 
                                                         <img
-                                                            src={product.image?.trim() || '/images/defFoodImage.png'}
+                                                            src={product.image?.trim() || '/images/defFoodImage.webp'}
                                                             alt={product.name}
                                                             className="w-full h-full object-cover"
                                                             onError={(e) => {
                                                                 (e.target as HTMLImageElement).src =
-                                                                    '/images/defFoodImage.png'
+                                                                    '/images/defFoodImage.webp'
                                                             }}
                                                         />
 
@@ -745,7 +745,7 @@ function MenuPageContent() {
                                             <img
                                                 src={
                                                     combo.image?.trim() ||
-                                                    '/images/defFoodImage.png'
+                                                    '/images/defFoodImage.webp'
                                                 }
                                                 alt={combo.name}
                                                 className="w-full h-full object-cover"
@@ -753,7 +753,7 @@ function MenuPageContent() {
                                                     (
                                                         e.target as HTMLImageElement
                                                     ).src =
-                                                        '/images/defFoodImage.png'
+                                                        '/images/defFoodImage.webp'
                                                 }}
                                             />
 

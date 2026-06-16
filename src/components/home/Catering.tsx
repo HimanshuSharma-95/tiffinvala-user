@@ -18,36 +18,9 @@ export default function Catering() {
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
-                {/* ── Left: Image ── */}
-                {/* <div className="relative flex justify-center md:justify-end">
-                    <div className="relative w-full max-w-md">
-
-                      
-                        <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border-2 border-orange-200 -z-10" />
-
-                        <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl">
-                            <Image
-                                src="/catering3.png"
-                                alt="Catering spread of homestyle tiffin dishes"
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 384px"
-                            />
-
-                        
-                            <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-2xl px-3 py-2.5 shadow-lg flex items-center gap-2.5">
-                                <span className="text-xl">🍛</span>
-                                <div>
-                                    <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Serves up to</p>
-                                    <p className="text-sm font-extrabold text-[#1E2A3A]">500+ Guests</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="animate-slide-in-right">
                     <img
-                        src="/catering3.png"
+                        src="/catering3.webp"
                         alt="Homemade Food"
                         className="w-full h-auto rounded-2xl shadow-lg"
                     />

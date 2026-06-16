@@ -8,9 +8,8 @@ import { handleLogout } from "@/utils/auth";
 import { toast } from "sonner";
 
 const SLIDES = [
-    { mob: "/mobbanner1.png", desk: "/deskbanner1.png" },
-    { mob: "/mobbanner2.png", desk: "/deskbanner2.png" },
-    // { mob: "/mobbanner3.png", desk: "/deskbanner3.png" },
+    { mob: "/mobbanner1.webp", desk: "/deskbanner1.webp" },
+    { mob: "/mobbanner2.webp", desk: "/deskbanner2.webp" },
 ];
 
 const AUTO_SLIDE_INTERVAL = 3000;

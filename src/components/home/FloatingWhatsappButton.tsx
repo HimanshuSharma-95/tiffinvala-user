@@ -30,7 +30,7 @@ export default function FloatingWhatsappButton() {
             `}
         >
             <Image
-                src="/images/whatsapp.png"
+                src="/images/whatsapp.webp"
                 alt="WhatsApp"
                 width={28}
                 height={28}

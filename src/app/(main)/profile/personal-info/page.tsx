@@ -753,7 +753,7 @@ export default function PersonalInfoPage() {
                   onChange={(e) =>
                     setForm((p) => ({ ...p, phone_number: e.target.value }))
                   }
-                  placeholder="9876543210"
+                  placeholder="Phone No."
                   disabled={saving}
                   className={inputClass(saving)}
                 />

@@ -1,14 +1,20 @@
-'use client'
-
-import { useSearchParams, useRouter } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
 
-export default function PaymentSuccessPage() {
-    const searchParams = useSearchParams()
-    const router = useRouter()
+interface PaymentSuccessPageProps {
+    searchParams: Promise<{
+        session_id?: string
+        order_id?: string
+    }>
+}
 
-    const sessionId = searchParams.get('session_id')
-    const orderId = searchParams.get('order_id')
+export default async function PaymentSuccessPage({
+    searchParams,
+}: PaymentSuccessPageProps) {
+    const params = await searchParams
+
+    const sessionId = params.session_id
+    const orderId = params.order_id
 
     return (
         <main className="min-h-[70vh] flex items-center justify-center px-4 py-12">
@@ -57,12 +63,12 @@ export default function PaymentSuccessPage() {
                 )}
 
                 {/* Button */}
-                <button
-                    onClick={() => router.push('/profile/orders')}
-                    className="mt-7 w-full rounded-xl bg-black px-5 py-3 font-medium text-white transition hover:opacity-90"
+                <Link
+                    href="/profile/orders"
+                    className="mt-7 block w-full rounded-xl bg-black px-5 py-3 font-medium text-white transition hover:opacity-90"
                 >
                     View My Orders
-                </button>
+                </Link>
 
             </div>
         </main>

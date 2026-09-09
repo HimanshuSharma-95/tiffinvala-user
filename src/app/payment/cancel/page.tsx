@@ -1,13 +1,18 @@
-'use client'
-
-import { useSearchParams, useRouter } from 'next/navigation'
 import { XCircle } from 'lucide-react'
+import Link from 'next/link'
 
-export default function PaymentCancelPage() {
-    const searchParams = useSearchParams()
-    const router = useRouter()
+interface PaymentCancelPageProps {
+    searchParams: Promise<{
+        order_id?: string
+    }>
+}
 
-    const orderId = searchParams.get('order_id')
+export default async function PaymentCancelPage({
+    searchParams,
+}: PaymentCancelPageProps) {
+    const params = await searchParams
+
+    const orderId = params.order_id
 
     return (
         <main className="min-h-[70vh] flex items-center justify-center px-4 py-12">
@@ -45,19 +50,19 @@ export default function PaymentCancelPage() {
                 {/* Buttons */}
                 <div className="mt-7 flex flex-col gap-3">
 
-                    <button
-                        onClick={() => router.push('/checkout')}
+                    <Link
+                        href="/checkout"
                         className="w-full rounded-xl bg-black px-5 py-3 font-medium text-white transition hover:opacity-90"
                     >
                         Return to Checkout
-                    </button>
+                    </Link>
 
-                    <button
-                        onClick={() => router.push('/profile/orders')}
+                    <Link
+                        href="/profile/orders"
                         className="w-full rounded-xl border border-gray-200 px-5 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
                     >
                         View My Orders
-                    </button>
+                    </Link>
 
                 </div>
 

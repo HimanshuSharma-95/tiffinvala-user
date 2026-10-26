@@ -63,6 +63,28 @@ export const getCombosByArea = async (area: string) => {
 }
 
 
+
+// 1.1
+//order
+// export const proceedToOrder = async (data: {
+//     addressId: string
+// }) => {
+//     const response = await api.post(
+//         '/orders/proceedtoorder',
+//         {
+//             addressId: data.addressId,
+//             payment: {
+//                 method: 'Pay Later'
+//             }
+//         }
+//     )
+
+//     return response.data
+// }
+
+
+
+
 //order
 export const proceedToOrder = async (data: {
     addressId: string
@@ -72,10 +94,18 @@ export const proceedToOrder = async (data: {
         {
             addressId: data.addressId,
             payment: {
-                method: 'Pay Later'
+                method: 'online'
             }
         }
     )
 
     return response.data
+}
+
+export const createCheckoutSession = async (orderId: string) => {
+    const response = await api.post('/payment/create-checkout-session', {
+        orderId
+    })
+
+    return response.data // { url }
 }

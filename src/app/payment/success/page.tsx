@@ -1,76 +1,63 @@
-import { CheckCircle2 } from 'lucide-react'
-import Link from 'next/link'
+import { Check } from "lucide-react";
+import Link from "next/link";
 
 interface PaymentSuccessPageProps {
-    searchParams: Promise<{
-        session_id?: string
-        order_id?: string
-    }>
+  searchParams: Promise<{
+    order_id?: string;
+  }>;
 }
 
 export default async function PaymentSuccessPage({
-    searchParams,
+  searchParams,
 }: PaymentSuccessPageProps) {
-    const params = await searchParams
+  const params = await searchParams;
 
-    const sessionId = params.session_id
-    const orderId = params.order_id
+  const orderId = params.order_id;
 
-    return (
-        <main className="min-h-[70vh] flex items-center justify-center px-4 py-12">
-            <div className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-sm">
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-white px-4 pb-24">
+      <div className="flex w-full max-w-sm flex-col items-center text-center">
+        {/* Icon badge */}
+        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-green-50">
+          <Check className="h-10 w-10 text-green-500" strokeWidth={2.5} />
+        </div>
 
-                {/* Success Icon */}
-                <div className="flex justify-center mb-6">
-                    <CheckCircle2
-                        className="h-20 w-20 text-green-500"
-                    />
-                </div>
+        {/* Heading */}
+        <h1 className="mt-5 text-xl font-bold text-gray-800">
+          Payment Successful!
+        </h1>
 
-                {/* Heading */}
-                <h1 className="text-3xl font-bold text-gray-900">
-                    Payment Successful!
-                </h1>
+        <p className="mt-1.5 text-sm text-gray-400">
+          Your order has been placed successfully
+        </p>
 
-                <p className="mt-3 text-gray-600">
-                    Your payment has been successfully completed.
-                </p>
+        {/* Order ID */}
+        {orderId && (
+          <div className="mt-5 w-full rounded-xl bg-gray-100 px-4 py-3 text-left">
+            <p className="text-xs text-gray-400">Order ID</p>
+            <p className="mt-0.5 break-all text-sm font-medium text-gray-800">
+              {orderId}
+            </p>
+          </div>
+        )}
 
-                {/* Order ID */}
-                {orderId && (
-                    <div className="mt-6 rounded-xl bg-gray-50 p-4 text-left">
-                        <p className="text-sm text-gray-500">
-                            Order ID
-                        </p>
+        {/* Buttons */}
+        <div className="mt-6 flex w-full flex-col gap-2.5">
+          <Link
+            href="/profile/orders"
+            className="w-full rounded-xl bg-[#F97316] px-4 py-2.5 text-center text-sm font-semibold tracking-wide text-white transition hover:opacity-90"
+          >
+            View My Orders
+          </Link>
 
-                        <p className="mt-1 break-all font-medium text-gray-900">
-                            {orderId}
-                        </p>
-                    </div>
-                )}
-
-                {/* Stripe Session ID */}
-                {sessionId && (
-                    <div className="mt-3 rounded-xl bg-gray-50 p-4 text-left">
-                        <p className="text-sm text-gray-500">
-                            Payment Session
-                        </p>
-
-                        <p className="mt-1 break-all text-sm text-gray-700">
-                            {sessionId}
-                        </p>
-                    </div>
-                )}
-
-                {/* Button */}
-                <Link
-                    href="/profile/orders"
-                    className="mt-7 block w-full rounded-xl bg-black px-5 py-3 font-medium text-white transition hover:opacity-90"
-                >
-                    View My Orders
-                </Link>
-
-            </div>
-        </main>
-    )
+          <Link
+            href="/menu"
+            className="w-full rounded-xl border border-[#F97316] bg-white px-4 py-2.5 text-center text-sm font-semibold tracking-wide text-[#F97316] transition hover:bg-orange-50"
+          >
+            Continue Ordering
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
 }

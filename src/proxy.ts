@@ -95,6 +95,7 @@ export function proxy(request: NextRequest) {
 
     const protectedRoutes = [
         '/checkout',
+        '/payment',
         '/profile/orders',
         '/profile/addresses',
         '/profile/personal-info',
@@ -126,6 +127,7 @@ export function proxy(request: NextRequest) {
 export const config = {
     matcher: [
         '/checkout/:path*',
+        '/payment/:path*',
         '/profile/orders/:path*',
         '/profile/addresses/:path*',
         '/profile/personal-info/:path*',
